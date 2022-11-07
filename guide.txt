@@ -1,0 +1,17 @@
+npm init --yes
+express : framework de ayuda en backend 
+mongoose : driver util para mongodb
+ejs-mate : motor de generadores de plantilla
+connect-flash : ayuda a que las paginas intercambien informacion
+morgan : trazabilidad de metodos http (get/post etc)
+passport : sirve para la autenticacion de usuarios/login/registro etc
+passport-local : es lo mismo pero sirve para la autenticacion de forma local con nuestro propio servidor
+bcrypt-nodejs : para encriptar passwords
+nodemon -D: para guardar cambios automaticamente, se pone -D para que no sea dependencia sino de desarrollo
+
+---------------------------------------------------------
+
+Para remover/eliminar una dependecia ya sea porque es deprecated o da algun error se pone:
+npm remove [dependencia] = npm remove moongose
+Para agregar una dependencia correcta con version especifica se pone:
+npm install moongose@5.2.8
