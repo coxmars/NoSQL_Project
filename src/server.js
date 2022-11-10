@@ -21,6 +21,8 @@ app.set('port', process.env.PORT || 3000); // process.env.PORT is establish beca
 // Middlewares - These are functions that are executed before the routes (process)
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 app.use(session({
     secret: 'mysecretsession',
     resave: false,
@@ -37,11 +39,18 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(express.static('public'));
 
 // Routes
 app.use('/', require('./routes/auth')); // This is needed to show the pages
+const products = require('./routes/product');
+app.use(products);
+const users = require('./routes/user');
+app.use(users);
+
 
 // Starting the server
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'))
+    console.log('Launch app: http://localhost:3000/')
 });
