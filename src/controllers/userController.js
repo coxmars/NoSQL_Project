@@ -15,6 +15,7 @@ module.exports.show = (req, res)=>{
 // Create
 module.exports.create = (req, res)=>{
     //console.log(req.body)
+    // Here is the error maybe the name because is the same "user" : before initialization
     const user = new User({
         email: req.body.email,
         password: user.encryptPassword(req.body.password)
@@ -56,3 +57,5 @@ module.exports.delete = (req, res)=>{
         res.redirect('/users')
     })
 }
+
+

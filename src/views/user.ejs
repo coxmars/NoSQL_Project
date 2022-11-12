@@ -5,7 +5,7 @@
 <div class="container">
     <div class="bg-body rounded mb-3 mt-5">
         <h4>User Information</h4>
-        <form action="/create" method="POST">
+        <form action="/createUser" method="POST">
             <div class="col-md-9 mb-2">
                 <label for="email" class="form-label">Email</label>
                 <input id="email" name="email" placeholder="Email" type="text" class="form-control" required>
@@ -23,24 +23,20 @@
             <thead>
                 <tr>
                     <th style="display: none;">ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th>Email</th>
+                    <th>Password</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <% products.forEach( (product) => { %>
+                <% users.forEach( (user) => { %>
                     <tr>
-                        <td style="display: none;"><%= product._id %></td>
-                        <td><%= product.name %></td>
-                        <td><%= product.description %></td>
-                        <td><%= product.price %></td>
-                        <td><%= product.quantity %></td>
+                        <td style="display: none;"><%= user._id %></td>
+                        <td><%= user.email %></td>
+                        <td>***************</td>
                         <td>
-                            <a title="Update" type="button" class="btnEditProducts btn btn-outline-info bi bi-pencil"></a>
-                            <a title="Delete" href="/delete/<%= product._id %>" class="btnBorrar btn btn-outline-danger bi bi-trash"></a>
+                            <a title="Update" type="button" class="btnEditUsers btn btn-outline-info bi bi-pencil"></a>
+                            <a title="Delete" href="/deleteUser/<%= user._id %>" class="btnBorrar btn btn-outline-danger bi bi-trash"></a>
                         </td>
                     </tr>
                 <% }) %>
@@ -49,7 +45,7 @@
 </div>
 
 <!-- Modal to update  -->
-<div id="modalProduct" class="modal fade" tabindex="-1" aria-labelledby="modalProduct" aria-hidden="true">
+<div id="modalUser" class="modal fade" tabindex="-1" aria-labelledby="modalUser" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -57,23 +53,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="/update" method="POST">
+          <form action="/updateUser" method="POST">
               <input name="id_update" id="id_update" type="text" hidden>
             <div class="mb-3">
-              <label for="name_update" class="col-form-label">Name:</label>
-              <input id="name_update" name="name_update" type="text" class="form-control" value="">
+              <label for="email_update" class="col-form-label">Email:</label>
+              <input id="email_update" name="email_update" type="text" class="form-control" value="">
             </div>
             <div class="mb-3">
-              <label for="description_update" class="col-form-label">Description:</label>
-              <input id="description_update" name="description_update" type="text" class="form-control" value="">
-            </div>
-            <div class="mb-4">
-                <label for="price_update" class="col-form-label">Price:</label>
-                <input id="price_update" name="price_update" type="number" class="form-control" value="">
-            </div>
-            <div class="mb-3">
-                <label for="quantity_update" class="col-form-label">Quantity:</label>
-                <input id="quantity_update" name="quantity_update" type="number" class="form-control" value="">
+              <label for="password_update" class="col-form-label">Password:</label>
+              <input id="password_update" name="password_update" type="text" class="form-control" value="">
             </div>
         </div>
         <div class="modal-footer">              
@@ -86,4 +74,4 @@
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-<script src="js/code.js"></script>
+<script src="js/userModal.js"></script>

@@ -4,51 +4,45 @@
 <link rel="stylesheet" href="css/style.css">
 <div class="container">
     <div class="bg-body rounded mb-3 mt-5">
-        <h4>Product Information</h4>
-        <form action="/create" method="POST">
+        <h4>Provider Information</h4>
+        <form action="/createProvider" method="POST">
             <div class="col-md-9 mb-2">
                 <label for="name" class="form-label">Name</label>
                 <input id="name" name="name" placeholder="Name" type="text" class="form-control" required>
             </div>
             <div class="col-md-9 mb-2">
-                <label for="description" class="form-label">Description</label>
-                <input id="description" name="description" placeholder="Description" type="text" class="form-control" required>
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input id="phoneNumber" name="phoneNumber" placeholder="Phone Number" type="text" class="form-control" required>
             </div>
             <div class="col-md-9 mb-2">
-                <label for="price" class="form-label">Price</label>
-                <input id="price" name="price" placeholder="Price" type="number" class="form-control" required>
-            </div>
-            <div class="col-md-9 mb-2">
-                <label for="quantity" class="form-label">Quantity</label>
-                <input id="quantity" name="quantity" placeholder="Quantity" type="number" class="form-control" required>
+                <label for="location" class="form-label">Location</label>
+                <input id="location" name="location" placeholder="Location" type="text" class="form-control" required>
             </div>
      </div> 
             <button title="Save" type="submit" class="btn btn-info"><i class="bi bi-save"></i></button>
         </form>
         <hr></hr>
         <!-- Tabla Productos  -->
-        <table style="text-align:center;" id="tablaProductos" class="table table-bordered table-hover mt-4">
+        <table style="text-align:center;" id="tableProviders" class="table table-bordered table-hover mt-4">
             <thead>
                 <tr>
                     <th style="display: none;">ID</th>
                     <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
+                    <th>Phone Number</th>
+                    <th>Location</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <% products.forEach( (product) => { %>
+                <% providers.forEach( (provider) => { %>
                     <tr>
-                        <td style="display: none;"><%= product._id %></td>
-                        <td><%= product.name %></td>
-                        <td><%= product.description %></td>
-                        <td><%= product.price %></td>
-                        <td><%= product.quantity %></td>
+                        <td style="display: none;"><%= provider._id %></td>
+                        <td><%= provider.name %></td>
+                        <td><%= provider.phoneNumber %></td>
+                        <td><%= provider.location %></td>
                         <td>
-                            <a title="Update" type="button" class="btnEditProducts btn btn-outline-info bi bi-pencil"></a>
-                            <a title="Delete" href="/delete/<%= product._id %>" class="btnBorrar btn btn-outline-danger bi bi-trash"></a>
+                            <a title="Update" type="button" class="btnEditProviders btn btn-outline-info bi bi-pencil"></a>
+                            <a title="Delete" href="/deleteProvider/<%= provider._id %>" class="btnBorrar btn btn-outline-danger bi bi-trash"></a>
                         </td>
                     </tr>
                 <% }) %>
@@ -57,7 +51,7 @@
 </div>
 
 <!-- Modal to update  -->
-<div id="modalProduct" class="modal fade" tabindex="-1" aria-labelledby="modalProduct" aria-hidden="true">
+<div id="modalProvider" class="modal fade" tabindex="-1" aria-labelledby="modalProvider" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -65,23 +59,19 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="/update" method="POST">
+          <form action="/updateProvider" method="POST">
               <input name="id_update" id="id_update" type="text" hidden>
             <div class="mb-3">
               <label for="name_update" class="col-form-label">Name:</label>
               <input id="name_update" name="name_update" type="text" class="form-control" value="">
             </div>
             <div class="mb-3">
-              <label for="description_update" class="col-form-label">Description:</label>
-              <input id="description_update" name="description_update" type="text" class="form-control" value="">
+              <label for="phoneNumber_update" class="col-form-label">Phone Number:</label>
+              <input id="phoneNumber_update" name="phoneNumber_update" type="text" class="form-control" value="">
             </div>
             <div class="mb-4">
-                <label for="price_update" class="col-form-label">Price:</label>
-                <input id="price_update" name="price_update" type="number" class="form-control" value="">
-            </div>
-            <div class="mb-3">
-                <label for="quantity_update" class="col-form-label">Quantity:</label>
-                <input id="quantity_update" name="quantity_update" type="number" class="form-control" value="">
+                <label for="location_update" class="col-form-label">Location:</label>
+                <input id="location_update" name="location_update" type="text" class="form-control" value="">
             </div>
         </div>
         <div class="modal-footer">              
@@ -94,4 +84,4 @@
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-<script src="js/productModal.js"></script>
+<script src="js/providerModal.js"></script>

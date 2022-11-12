@@ -47,6 +47,12 @@ const products = require('./routes/product');
 app.use(products);
 const users = require('./routes/user');
 app.use(users);
+const dashboard = require('./routes/dashboard');
+app.use(dashboard);
+const employees = require('./routes/employee');
+app.use(employees);
+const providers = require('./routes/providers');
+app.use(providers);
 
 
 // Starting the server

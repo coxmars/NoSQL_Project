@@ -53,6 +53,5 @@ function isAuthenticated(req, res, next) {
     res.redirect('/');
 }
 
-
 module.exports = router; // This is to be used in other files
 

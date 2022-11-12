@@ -4,11 +4,20 @@ const router = express.Router()
 const userController = require('../controllers/userController')
 
 // Show all products
-router.get('/users', userController.show)
+router.get('/users', isAuthenticated, userController.show)
 // Create products
-router.post('/create', userController.create) 
+router.post('/createUser', isAuthenticated, userController.create) 
 // Update products
-router.post('/update', userController.update)
+router.post('/updateUser', isAuthenticated, userController.update)
 // Delete products
-router.get('/delete/:id', userController.delete)
+router.get('/deleteUser/:id', isAuthenticated, userController.delete)
+
+// Function to protect routes
+function isAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+}
+
 module.exports = router

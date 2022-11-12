@@ -9,10 +9,6 @@ const EmployeeSchema = new mongoose.Schema({
         type: String,
         required: [true, "Email is required"],
     },
-    age: {
-        type: Number,
-        required: [true, "Age is required"],
-    },
     phoneNumber: {
         type: String,
         required: [true, "Phone number is required"],
