@@ -37,14 +37,11 @@ Application with MongoDB + Node Js + Express + Bootstrap 5 using MVC focused in 
 
 
 ## Screenshots
-![inicio](![Main](https://user-images.githubusercontent.com/75222804/215351380-459027f9-d238-47e6-beda-5898d37ab453.jpg)
+(![Main](https://user-images.githubusercontent.com/75222804/215351380-459027f9-d238-47e6-beda-5898d37ab453.jpg)
 
+![Graficos](https://user-images.githubusercontent.com/75222804/215351663-afafef10-bb0f-451a-a9ca-c8f35b90ccff.jpg)
 
-
-
-
-
-
+![Profile](https://user-images.githubusercontent.com/75222804/215351722-d4774a69-f212-4734-8960-2f47b56cc4a3.jpg)
 
 
 
